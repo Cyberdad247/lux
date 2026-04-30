@@ -1,0 +1,12 @@
+node_modules/
+.next/
+public/assets/
+*.lock
+*.woff
+*.woff2
+*.png
+*.jpg
+*.webp
+*.avif
+*.ico
+*.tsbuildinfo

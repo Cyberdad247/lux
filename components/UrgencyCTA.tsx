@@ -22,7 +22,7 @@ const UrgencyCTA = () => {
         <p className="mb-4 text-lg text-white/70 md:text-xl">
           We make sure you never lose a serious buyer just because they want to pay in crypto.
         </p>
-        <p className="mb-10 text-base font-semibold text-[#C9A84C]">
+        <p className="mb-10 text-base font-semibold text-[var(--color-gold)]">
           Now onboarding a limited number of businesses ahead of the next market cycle.
         </p>
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
@@ -30,7 +30,7 @@ const UrgencyCTA = () => {
             href="#"
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
-            className="rounded-full bg-[#C9A84C] px-9 py-3.5 text-base font-bold text-[#0A0A0B] transition-opacity hover:opacity-90"
+            className="rounded-full bg-[var(--color-gold)] px-9 py-3.5 text-base font-bold text-[#0A0A0B] transition-opacity hover:opacity-90"
           >
             Start Accepting Today
           </motion.a>
@@ -38,7 +38,7 @@ const UrgencyCTA = () => {
             href="#"
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
-            className="rounded-full border border-[#C9A84C] px-9 py-3.5 text-base font-bold text-[#C9A84C] transition-colors hover:bg-[#C9A84C] hover:text-[#0A0A0B]"
+            className="rounded-full border border-[var(--color-gold)] px-9 py-3.5 text-base font-bold text-[var(--color-gold)] transition-colors hover:bg-[var(--color-gold)] hover:text-[#0A0A0B]"
           >
             Request Concierge Access
           </motion.a>

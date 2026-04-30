@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
 
 const SPRING = { type: "spring" as const, stiffness: 100, damping: 30 };
 
@@ -59,23 +58,13 @@ export default function MagicButton({
         {/* Glass backing disc */}
         <div className="glass absolute inset-3 rounded-full" />
 
-        {/* Luxora Shield — swap /assets/shield.png when 3539.png is placed */}
-        <div className="relative z-10 w-14 h-14 flex items-center justify-center">
-          <Image
-            src="/assets/shield.png"
-            alt="Luxora Shield"
-            width={56}
-            height={56}
-            className="object-contain drop-shadow-[0_0_12px_rgba(212,175,55,0.6)]"
-            onError={(e) => {
-              (e.target as HTMLImageElement).style.display = "none";
-            }}
-          />
-          {/* Fallback geometric shield */}
+        {/* Luxora Shield — SVG primary; swap for /assets/shield.png (issue #3539) when asset lands */}
+        <div className="relative z-10 w-14 h-14 flex items-center justify-center drop-shadow-[0_0_12px_rgba(212,175,55,0.6)]">
           <svg
-            className="absolute inset-0 w-full h-full"
+            className="w-full h-full"
             viewBox="0 0 56 56"
             fill="none"
+            aria-hidden="true"
           >
             <path
               d="M28 4 L50 14 L50 30 C50 42 28 52 28 52 C28 52 6 42 6 30 L6 14 Z"

@@ -23,13 +23,12 @@ const features = [
 
 const FeatureCard = ({ headline, description }: { headline: string; description: string }) => (
   <motion.div
-    className="group flex flex-col gap-4 rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
-    whileHover={{ scale: 1.02, boxShadow: '0 0 24px rgba(201,168,76,0.35)' }}
+    className="group flex flex-col gap-4 rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm
+               hover:border-[#D4AF37] hover:shadow-[0_0_24px_rgba(212,175,55,0.3)] transition-shadow duration-300"
+    whileHover={{ scale: 1.02 }}
     transition={{ type: 'spring', stiffness: 400, damping: 15 }}
-    style={{ borderColor: undefined }}
-    whileFocus={{ borderColor: '#C9A84C' }}
   >
-    <div className="h-8 w-8 rounded-full bg-[#C9A84C] opacity-90 group-hover:opacity-100 transition-opacity" />
+    <div className="h-8 w-8 rounded-full bg-[#D4AF37] opacity-80 group-hover:opacity-100 transition-opacity" />
     <h3 className="text-xl font-bold text-white">{headline}</h3>
     <p className="text-sm leading-relaxed text-white/60">{description}</p>
   </motion.div>
@@ -38,7 +37,7 @@ const FeatureCard = ({ headline, description }: { headline: string; description:
 const FeaturesGrid = () => (
   <section className="w-full bg-[#0A0A0B] py-20">
     <div className="mx-auto max-w-5xl px-6">
-      <h2 className="mb-3 text-center text-sm font-semibold uppercase tracking-widest text-[#C9A84C]">
+      <h2 className="mb-3 text-center text-sm font-semibold uppercase tracking-widest text-[var(--color-gold)]">
         Why Luxora
       </h2>
       <p className="mb-12 text-center text-3xl font-bold text-white">

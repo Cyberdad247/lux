@@ -45,7 +45,7 @@ export default function Hero({ children }: { children?: React.ReactNode }) {
   }, [rawX, rawY]);
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+    <section className="relative min-h-[85vh] sm:min-h-screen flex flex-col items-center justify-center overflow-hidden">
 
       {/* Obsidian base */}
       <div className="absolute inset-0 bg-[#0A0A0B]" />
@@ -155,7 +155,7 @@ export default function Hero({ children }: { children?: React.ReactNode }) {
       />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-4xl mx-auto">
+      <div className="relative z-10 flex flex-col items-center text-center px-4 sm:px-6 max-w-4xl mx-auto">
         {children}
       </div>
     </section>

@@ -1,14 +1,42 @@
 import Hero from "@/components/Hero";
 import MagicButton from "@/components/MagicButton";
 import TrustBanner from "@/components/TrustBanner";
+import TickerBar from "@/components/TickerBar";
 import FeaturesGrid from "@/components/FeaturesGrid";
 import UrgencyCTA from "@/components/UrgencyCTA";
 import ContactFooter from "@/components/ContactFooter";
 import Image from "next/image";
 
-export default function Home() {
+const TICKER_FALLBACK = [
+  { symbol: "BTC", price: 0, change24h: 0 },
+  { symbol: "ETH", price: 0, change24h: 0 },
+  { symbol: "SOL", price: 0, change24h: 0 },
+];
+
+async function getTickers() {
+  try {
+    const res = await fetch(
+      "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana&vs_currencies=usd&include_24hr_change=true",
+      { next: { revalidate: 60 } }
+    );
+    if (!res.ok) return TICKER_FALLBACK;
+    const data = await res.json();
+    return [
+      { symbol: "BTC", price: data.bitcoin?.usd ?? 0, change24h: data.bitcoin?.usd_24h_change ?? 0 },
+      { symbol: "ETH", price: data.ethereum?.usd ?? 0, change24h: data.ethereum?.usd_24h_change ?? 0 },
+      { symbol: "SOL", price: data.solana?.usd ?? 0, change24h: data.solana?.usd_24h_change ?? 0 },
+    ];
+  } catch {
+    return TICKER_FALLBACK;
+  }
+}
+
+export default async function Home() {
+  const tickers = await getTickers();
+
   return (
     <main className="bg-[#0A0A0B]">
+      <TickerBar tickers={tickers} />
       <TrustBanner />
 
       <Hero>
@@ -27,7 +55,7 @@ export default function Home() {
         {/* Headline — mask-reveal */}
         <div className="mb-4 overflow-hidden">
           <h1
-            className="mask-reveal text-4xl sm:text-6xl font-extralight tracking-tight text-white leading-tight"
+            className="mask-reveal text-3xl sm:text-5xl lg:text-6xl font-extralight tracking-tight text-white leading-tight"
             style={{ animationDelay: "0.3s" }}
           >
             CLOSE HIGH-VALUE BUYERS

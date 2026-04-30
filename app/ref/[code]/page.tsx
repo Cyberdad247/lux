@@ -1,29 +1,42 @@
 import { redirect } from "next/navigation";
+import { headers } from "next/headers";
+import { createHash } from "crypto";
+import { supabaseServer } from "@/lib/supabase-server";
 
 interface RefPageProps {
   params: { code: string };
-  searchParams?: { [key: string]: string | string[] | undefined };
 }
 
-// Atomic referral log — server-side, no client exposure
 async function logReferral(code: string) {
-  // Stub: write to PROVENANCE_LEDGER or Supabase in Phase 2
-  console.log(`[LUXORA_REF] code=${code} ts=${Date.now()}`);
+  const reqHeaders = headers();
+  const ua = reqHeaders.get("user-agent")?.slice(0, 200) ?? null;
+  const ip =
+    reqHeaders.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+  const ref_ip_hash = createHash("sha256")
+    .update(ip)
+    .digest("hex")
+    .slice(0, 16);
+
+  if (supabaseServer) {
+    const { error } = await supabaseServer
+      .from("referrals")
+      .insert({ code, ts: new Date().toISOString(), ua, ref_ip_hash });
+    if (error) console.error("[LUXORA_REF] Supabase error:", error.message);
+  } else {
+    console.log(`[LUXORA_REF] code=${code} ts=${Date.now()}`);
+  }
 }
 
 export default async function RefPage({ params }: RefPageProps) {
   const { code } = params;
 
-  // Validate: alphanumeric codes only (anti-injection)
   if (!/^[a-zA-Z0-9_-]{1,64}$/.test(code)) {
     redirect("/");
   }
 
   await logReferral(code);
 
-  // Instant redirect back to landing with ref param preserved
-  redirect(`/?ref=${encodeURIComponent(code)}`);
+  redirect(`/apply?ref=${encodeURIComponent(code)}`);
 }
 
-// Force dynamic — referral codes must never be cached
 export const dynamic = "force-dynamic";

@@ -32,7 +32,7 @@ export default function MagicButton({ label = "REQUEST ACCESS" }: MagicButtonPro
       <motion.button
         onClick={handleClick}
         aria-label="Request Luxora Access"
-        className="relative flex items-center justify-center w-28 h-28 rounded-full cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37]"
+        className="relative flex items-center justify-center w-28 h-28 rounded-full cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold)]"
         whileHover={{ scale: 1.06 }}
         whileTap={{ scale: 0.97 }}
         transition={SPRING}
@@ -40,13 +40,13 @@ export default function MagicButton({ label = "REQUEST ACCESS" }: MagicButtonPro
       >
         {/* Outer pulse ring */}
         <motion.span
-          className="absolute inset-0 rounded-full border border-[#D4AF37]/40"
+          className="absolute inset-0 rounded-full border border-[var(--color-gold)]/40"
           animate={decrypting ? {} : { scale: [1, 1.35, 1], opacity: [0.5, 0, 0.5] }}
           transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
         />
         {/* Mid pulse ring */}
         <motion.span
-          className="absolute inset-2 rounded-full border border-[#D4AF37]/25"
+          className="absolute inset-2 rounded-full border border-[var(--color-gold)]/25"
           animate={decrypting ? {} : { scale: [1, 1.25, 1], opacity: [0.4, 0, 0.4] }}
           transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
         />
@@ -64,13 +64,13 @@ export default function MagicButton({ label = "REQUEST ACCESS" }: MagicButtonPro
           >
             <path
               d="M28 4 L50 14 L50 30 C50 42 28 52 28 52 C28 52 6 42 6 30 L6 14 Z"
-              stroke="#D4AF37"
+              stroke="var(--color-gold)"
               strokeWidth="1.5"
               fill="rgba(212,175,55,0.08)"
             />
             <path
               d="M28 12 L42 20 L42 31 C42 39 28 46 28 46 C28 46 14 39 14 31 L14 20 Z"
-              stroke="#D4AF37"
+              stroke="var(--color-gold)"
               strokeWidth="0.8"
               strokeOpacity="0.4"
               fill="none"
@@ -90,7 +90,7 @@ export default function MagicButton({ label = "REQUEST ACCESS" }: MagicButtonPro
               <motion.div
                 className="absolute inset-0 rounded-full"
                 style={{
-                  background: "conic-gradient(from 0deg, #D4AF37 0%, transparent 60%)",
+                  background: "conic-gradient(from 0deg, var(--color-gold) 0%, transparent 60%)",
                   opacity: 0.6,
                 }}
                 animate={{ rotate: 360 }}
@@ -109,7 +109,7 @@ export default function MagicButton({ label = "REQUEST ACCESS" }: MagicButtonPro
         transition={{ ...SPRING, delay: 0.6 }}
       >
         <motion.span
-          className="text-xs tracking-[0.35em] text-[#D4AF37] uppercase font-medium"
+          className="text-xs tracking-[0.35em] text-[var(--color-gold)] uppercase font-medium"
           animate={decrypting ? { opacity: [1, 0.3, 1] } : {}}
           transition={{ duration: 0.4, repeat: decrypting ? Infinity : 0 }}
         >

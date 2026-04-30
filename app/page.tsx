@@ -5,6 +5,7 @@ import TickerBar from "@/components/TickerBar";
 import FeaturesGrid from "@/components/FeaturesGrid";
 import UrgencyCTA from "@/components/UrgencyCTA";
 import ContactFooter from "@/components/ContactFooter";
+import SectionReveal from "@/components/SectionReveal";
 import Image from "next/image";
 
 const TICKER_FALLBACK = [
@@ -35,7 +36,7 @@ export default async function Home() {
   const tickers = await getTickers();
 
   return (
-    <main className="bg-[#0A0A0B]">
+    <main className="bg-[var(--color-obsidian)]">
       <TickerBar tickers={tickers} />
       <TrustBanner />
 
@@ -60,7 +61,7 @@ export default async function Home() {
           >
             CLOSE HIGH-VALUE BUYERS
             <br />
-            <span className="text-[#D4AF37]">USING CRYPTO.</span>
+            <span className="text-[var(--color-gold)]">USING CRYPTO.</span>
           </h1>
         </div>
 
@@ -92,8 +93,8 @@ export default async function Home() {
                 className="absolute inset-0 bg-cover bg-center scale-110"
                 style={{ backgroundImage: "url('/assets/card-bg.png')" }}
               />
-              <div className="absolute inset-0 bg-[#0A0A0B]/75" />
-              <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/08 to-transparent" />
+              <div className="absolute inset-0 bg-[var(--color-obsidian)]/75" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gold)]/08 to-transparent" />
               <div className="relative z-10 px-5 py-3 text-[10px] tracking-[0.3em] text-white/60 uppercase font-medium text-center">
                 {tag}
               </div>
@@ -102,9 +103,9 @@ export default async function Home() {
         </div>
       </Hero>
 
-      <FeaturesGrid />
-      <UrgencyCTA />
-      <ContactFooter />
+      <SectionReveal delay={0.05}><FeaturesGrid /></SectionReveal>
+      <SectionReveal delay={0.08}><UrgencyCTA /></SectionReveal>
+      <SectionReveal delay={0.05}><ContactFooter /></SectionReveal>
     </main>
   );
 }

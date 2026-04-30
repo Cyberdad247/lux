@@ -8,13 +8,13 @@ export const metadata = {
 
 export default function ApplyPage() {
   return (
-    <main className="min-h-screen bg-[#0A0A0B] flex flex-col">
+    <main className="min-h-screen bg-[var(--color-obsidian)] flex flex-col">
       {/* Prestige header bar */}
       <div className="shrink-0 h-14 flex items-center justify-between px-6 border-b border-white/10">
         <Link href="/" className="text-[10px] tracking-[0.35em] text-white/30 uppercase hover:text-white/60 transition-colors">
           ← Back
         </Link>
-        <span className="text-[10px] tracking-[0.4em] text-[#D4AF37] uppercase font-semibold">
+        <span className="text-[10px] tracking-[0.4em] text-[var(--color-gold)] uppercase font-semibold">
           Luxora Payments — Merchant Access
         </span>
         <span className="w-16" />

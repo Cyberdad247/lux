@@ -1,0 +1,112 @@
+{
+  "schema": "openclaw/v1",
+  "site": "luxora-prestige",
+  "repo": "https://github.com/Cyberdad247/lux.git",
+  "dna_lock": "2026-04-30",
+  "design_tokens": {
+    "gold": "#D4AF37",
+    "obsidian": "#0A0A0B",
+    "obsidian_lift": "#0D0D0F",
+    "css_var_gold": "var(--color-gold)",
+    "css_var_obsidian": "var(--color-obsidian)"
+  },
+  "components": [
+    {
+      "name": "Hero",
+      "file": "components/Hero.tsx",
+      "role": "Full-screen cinematic landing section with Ken Burns background, mouse parallax, lens flare, scan line",
+      "props": [{ "name": "children", "type": "ReactNode", "required": false }],
+      "animation_primitives": ["useMotionValue", "useSpring", "useTransform", "motion.div", "lens-flare animate"],
+      "tokens": ["obsidian", "gold"],
+      "transplant_deps": ["framer-motion", "hero-bg.png in /public/assets/"],
+      "reuse_rating": 5,
+      "gene": true
+    },
+    {
+      "name": "MagicButton",
+      "file": "components/MagicButton.tsx",
+      "role": "Animated shield CTA — 1.4s decrypt animation then opens Typeform popup",
+      "props": [{ "name": "label", "type": "string", "required": false, "default": "REQUEST ACCESS" }],
+      "animation_primitives": ["motion.button", "AnimatePresence", "conic-gradient spin", "pulse rings"],
+      "tokens": ["gold"],
+      "transplant_deps": ["framer-motion", "@typeform/embed", "lib/typeformPopup.ts"],
+      "reuse_rating": 5,
+      "gene": true
+    },
+    {
+      "name": "GlassPanel",
+      "file": "components/GlassPanel.tsx",
+      "role": "Reusable glass-morphism card with backdrop-blur and gold border",
+      "props": [
+        { "name": "children", "type": "ReactNode", "required": true },
+        { "name": "className", "type": "string", "required": false }
+      ],
+      "animation_primitives": [],
+      "tokens": ["glass", "glass-border", "gold"],
+      "transplant_deps": [],
+      "reuse_rating": 5,
+      "gene": true
+    },
+    {
+      "name": "TrustBanner",
+      "file": "components/TrustBanner.tsx",
+      "role": "Single-line trust signal bar below the viewport fold",
+      "props": [],
+      "animation_primitives": [],
+      "tokens": ["gold", "obsidian"],
+      "transplant_deps": [],
+      "reuse_rating": 4,
+      "gene": false
+    },
+    {
+      "name": "TickerBar",
+      "file": "components/TickerBar.tsx",
+      "role": "Horizontal CSS marquee of live BTC/ETH/SOL prices with hover-pause",
+      "props": [
+        {
+          "name": "tickers",
+          "type": "Array<{ symbol: string; price: number; change24h: number }>",
+          "required": true
+        }
+      ],
+      "animation_primitives": ["CSS @keyframes ticker-scroll", "animation-play-state pause on hover"],
+      "tokens": ["obsidian", "gold"],
+      "transplant_deps": ["CoinGecko fetch in page.tsx or /api/ticker route"],
+      "reuse_rating": 4,
+      "gene": false
+    },
+    {
+      "name": "FeaturesGrid",
+      "file": "components/FeaturesGrid.tsx",
+      "role": "3-column animated feature cards with scroll-triggered reveal and hover glow",
+      "props": [],
+      "animation_primitives": ["motion.div stagger", "useInView", "hover border glow CSS"],
+      "tokens": ["obsidian", "gold"],
+      "transplant_deps": ["framer-motion"],
+      "reuse_rating": 3,
+      "gene": false
+    },
+    {
+      "name": "UrgencyCTA",
+      "file": "components/UrgencyCTA.tsx",
+      "role": "Bottom-of-page conversion section with scarcity copy and dual CTA buttons opening Typeform",
+      "props": [],
+      "animation_primitives": ["motion.section", "useInView fade-in"],
+      "tokens": ["obsidian-lift", "gold"],
+      "transplant_deps": ["framer-motion", "@typeform/embed", "lib/typeformPopup.ts"],
+      "reuse_rating": 3,
+      "gene": false
+    },
+    {
+      "name": "ContactFooter",
+      "file": "components/ContactFooter.tsx",
+      "role": "Minimal prestige footer with email CTA",
+      "props": [],
+      "animation_primitives": [],
+      "tokens": ["obsidian", "gold"],
+      "transplant_deps": [],
+      "reuse_rating": 4,
+      "gene": false
+    }
+  ]
+}

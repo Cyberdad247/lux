@@ -42,7 +42,7 @@ export default function MerchantApplyForm({ refCode = '' }: MerchantApplyFormPro
     }
   };
 
-  const inputCls = 'w-full bg-white/5 border border-white/10 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent transition-all placeholder:text-white/30 disabled:opacity-40';
+  const inputCls = 'w-full bg-white/5 border border-white/10 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[var(--color-gold)] focus:border-transparent transition-all placeholder:text-white/30 disabled:opacity-40';
   const selectStyle = { backgroundImage: SELECT_ARROW, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', backgroundSize: '1.25em' };
 
   return (
@@ -58,7 +58,7 @@ export default function MerchantApplyForm({ refCode = '' }: MerchantApplyFormPro
           <motion.div
             key="submitting"
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-[#0A0A0B]/92 rounded-2xl"
+            className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-[var(--color-obsidian)]/92 rounded-2xl"
           >
             <motion.div
               className="relative w-20 h-20"
@@ -66,10 +66,10 @@ export default function MerchantApplyForm({ refCode = '' }: MerchantApplyFormPro
               transition={{ repeat: Infinity, duration: 1.4, ease: 'linear' }}
             >
               <div className="absolute inset-0 rounded-full"
-                style={{ background: 'conic-gradient(from 0deg, #D4AF37 0%, transparent 60%)' }} />
-              <div className="absolute inset-1.5 rounded-full bg-[#0A0A0B]" />
+                style={{ background: 'conic-gradient(from 0deg, var(--color-gold) 0%, transparent 60%)' }} />
+              <div className="absolute inset-1.5 rounded-full bg-[var(--color-obsidian)]" />
             </motion.div>
-            <p className="mt-4 text-sm tracking-[0.3em] text-[#D4AF37] uppercase font-semibold">Authenticating…</p>
+            <p className="mt-4 text-sm tracking-[0.3em] text-[var(--color-gold)] uppercase font-semibold">Authenticating…</p>
           </motion.div>
         )}
 
@@ -77,9 +77,9 @@ export default function MerchantApplyForm({ refCode = '' }: MerchantApplyFormPro
           <motion.div
             key="success"
             initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }}
-            className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-[#0A0A0B]/92 rounded-2xl text-center px-8"
+            className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-[var(--color-obsidian)]/92 rounded-2xl text-center px-8"
           >
-            <svg className="w-16 h-16 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-16 h-16 text-[var(--color-gold)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <motion.path
                 strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"
                 initial={{ pathLength: 0 }} animate={{ pathLength: 1 }}
@@ -88,7 +88,7 @@ export default function MerchantApplyForm({ refCode = '' }: MerchantApplyFormPro
             </svg>
             <motion.h3
               initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}
-              className="mt-4 text-xl font-bold text-[#D4AF37] tracking-wide"
+              className="mt-4 text-xl font-bold text-[var(--color-gold)] tracking-wide"
             >
               MERCHANT ACCESS REQUESTED
             </motion.h3>
@@ -105,10 +105,10 @@ export default function MerchantApplyForm({ refCode = '' }: MerchantApplyFormPro
           <motion.div
             key="error"
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-[#0A0A0B]/92 rounded-2xl text-center px-8"
+            className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-[var(--color-obsidian)]/92 rounded-2xl text-center px-8"
           >
             <p className="text-red-400 font-semibold mb-4">Submission failed. Please try again.</p>
-            <button onClick={() => setState('idle')} className="text-[#D4AF37] text-sm underline">Retry</button>
+            <button onClick={() => setState('idle')} className="text-[var(--color-gold)] text-sm underline">Retry</button>
           </motion.div>
         )}
       </AnimatePresence>
@@ -118,33 +118,33 @@ export default function MerchantApplyForm({ refCode = '' }: MerchantApplyFormPro
 
       <form onSubmit={handleSubmit} className="space-y-5">
         <div>
-          <label htmlFor="businessName" className="block text-xs font-semibold tracking-widest text-[#D4AF37] uppercase mb-2">Business Name</label>
+          <label htmlFor="businessName" className="block text-xs font-semibold tracking-widest text-[var(--color-gold)] uppercase mb-2">Business Name</label>
           <input id="businessName" type="text" required placeholder="e.g. Prestige Motors LLC"
             className={inputCls} value={fields.businessName} onChange={set('businessName')} disabled={state !== 'idle'} />
         </div>
         <div>
-          <label htmlFor="businessType" className="block text-xs font-semibold tracking-widest text-[#D4AF37] uppercase mb-2">Business Type</label>
+          <label htmlFor="businessType" className="block text-xs font-semibold tracking-widest text-[var(--color-gold)] uppercase mb-2">Business Type</label>
           <select id="businessType" required className={`${inputCls} appearance-none`} style={selectStyle}
             value={fields.businessType} onChange={set('businessType')} disabled={state !== 'idle'}>
-            {BUSINESS_TYPES.map(t => <option key={t} value={t} className="bg-[#0A0A0B] text-white">{t}</option>)}
+            {BUSINESS_TYPES.map(t => <option key={t} value={t} className="bg-[var(--color-obsidian)] text-white">{t}</option>)}
           </select>
         </div>
         <div>
-          <label htmlFor="email" className="block text-xs font-semibold tracking-widest text-[#D4AF37] uppercase mb-2">Email Address</label>
+          <label htmlFor="email" className="block text-xs font-semibold tracking-widest text-[var(--color-gold)] uppercase mb-2">Email Address</label>
           <input id="email" type="email" required placeholder="you@business.com"
             className={inputCls} value={fields.email} onChange={set('email')} disabled={state !== 'idle'} />
         </div>
         <div>
-          <label htmlFor="volume" className="block text-xs font-semibold tracking-widest text-[#D4AF37] uppercase mb-2">Monthly Volume</label>
+          <label htmlFor="volume" className="block text-xs font-semibold tracking-widest text-[var(--color-gold)] uppercase mb-2">Monthly Volume</label>
           <select id="volume" required className={`${inputCls} appearance-none`} style={selectStyle}
             value={fields.monthlyVolume} onChange={set('monthlyVolume')} disabled={state !== 'idle'}>
-            {VOLUMES.map(v => <option key={v} value={v} className="bg-[#0A0A0B] text-white">{v}</option>)}
+            {VOLUMES.map(v => <option key={v} value={v} className="bg-[var(--color-obsidian)] text-white">{v}</option>)}
           </select>
         </div>
         {refCode && <input type="hidden" name="refCode" value={refCode} />}
 
         <button type="submit" disabled={state !== 'idle'}
-          className="w-full mt-2 rounded-full bg-[#D4AF37] py-3.5 text-sm font-bold tracking-widest text-[#0A0A0B] uppercase hover:opacity-90 transition-opacity disabled:opacity-40">
+          className="w-full mt-2 rounded-full bg-[var(--color-gold)] py-3.5 text-sm font-bold tracking-widest text-[var(--color-obsidian)] uppercase hover:opacity-90 transition-opacity disabled:opacity-40">
           Submit Application
         </button>
       </form>

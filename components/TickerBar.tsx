@@ -26,11 +26,11 @@ export default function TickerBar({ tickers }: TickerBarProps) {
         .ticker-track:hover { animation-play-state: paused; }
       `}</style>
 
-      <div className="relative w-full overflow-hidden bg-[#0A0A0B] border-b border-white/10 h-9 flex items-center">
+      <div className="relative w-full overflow-hidden bg-[var(--color-obsidian)] border-b border-white/10 h-9 flex items-center">
         <div className="flex items-center whitespace-nowrap ticker-track">
           {items.map((t, i) => (
             <span key={i} className="flex items-center mx-6 gap-2">
-              <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--color-gold)]">
                 {t.symbol}
               </span>
               <span className="text-[11px] font-mono text-white">
@@ -39,7 +39,7 @@ export default function TickerBar({ tickers }: TickerBarProps) {
               <span className={`text-[11px] font-mono ${t.change24h >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
                 {t.change24h >= 0 ? '▲' : '▼'} {Math.abs(t.change24h).toFixed(2)}%
               </span>
-              <span className="text-[#D4AF37]/40 text-sm select-none mx-2">·</span>
+              <span className="text-[var(--color-gold)]/40 text-sm select-none mx-2">·</span>
             </span>
           ))}
         </div>

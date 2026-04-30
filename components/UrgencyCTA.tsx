@@ -14,7 +14,7 @@ const UrgencyCTA = () => {
       initial={{ opacity: 0, y: 48 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, ease: 'easeOut' }}
-      className="w-full border-t border-white/10 bg-[#0D0D0F] py-24 text-center"
+      className="w-full border-t border-white/10 bg-[var(--color-obsidian-lift)] py-24 text-center"
     >
       <div className="mx-auto max-w-4xl px-6">
         <h2 className="mb-5 text-4xl font-extrabold leading-tight tracking-tight text-white md:text-5xl lg:text-6xl">
@@ -31,7 +31,7 @@ const UrgencyCTA = () => {
             onClick={openTypeform}
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
-            className="rounded-full bg-[var(--color-gold)] px-9 py-3.5 text-base font-bold text-[#0A0A0B] transition-opacity hover:opacity-90"
+            className="rounded-full bg-[var(--color-gold)] px-9 py-3.5 text-base font-bold text-[var(--color-obsidian)] transition-opacity hover:opacity-90"
           >
             Start Accepting Today
           </motion.button>
@@ -39,7 +39,7 @@ const UrgencyCTA = () => {
             onClick={openTypeform}
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
-            className="rounded-full border border-[var(--color-gold)] px-9 py-3.5 text-base font-bold text-[var(--color-gold)] transition-colors hover:bg-[var(--color-gold)] hover:text-[#0A0A0B]"
+            className="rounded-full border border-[var(--color-gold)] px-9 py-3.5 text-base font-bold text-[var(--color-gold)] transition-colors hover:bg-[var(--color-gold)] hover:text-[var(--color-obsidian)]"
           >
             Request Concierge Access
           </motion.button>

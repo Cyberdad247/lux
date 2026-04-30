@@ -48,7 +48,7 @@ export default function Hero({ children }: { children?: React.ReactNode }) {
     <section className="relative min-h-[85vh] sm:min-h-screen flex flex-col items-center justify-center overflow-hidden">
 
       {/* Obsidian base */}
-      <div className="absolute inset-0 bg-[#0A0A0B]" />
+      <div className="absolute inset-0 bg-[var(--color-obsidian)]" />
 
       {/* ── CAR LAYER — Ken Burns drift + mouse parallax ── */}
       <motion.div
@@ -72,11 +72,11 @@ export default function Hero({ children }: { children?: React.ReactNode }) {
       />
 
       {/* Exposure layer — makes car pop without blowing highlights */}
-      <div className="absolute inset-0 opacity-55 bg-gradient-to-t from-transparent via-[#D4AF37]/04 to-transparent" />
+      <div className="absolute inset-0 opacity-55 bg-gradient-to-t from-transparent via-[var(--color-gold)]/04 to-transparent" />
 
       {/* Cinematic vignette */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0B]/70 via-transparent to-[#0A0A0B]/92" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0B]/60 via-transparent to-[#0A0A0B]/60" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-obsidian)]/70 via-transparent to-[var(--color-obsidian)]/92" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-obsidian)]/60 via-transparent to-[var(--color-obsidian)]/60" />
 
       {/* Floor reflection shimmer — wet surface under the car */}
       <motion.div

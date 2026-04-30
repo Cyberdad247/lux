@@ -2,31 +2,27 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { openTypeform } from "@/lib/typeformPopup";
 
 const SPRING = { type: "spring" as const, stiffness: 100, damping: 30 };
 
 interface MagicButtonProps {
-  href?: string;
-  onClick?: () => void;
   label?: string;
 }
 
-export default function MagicButton({
-  href = "#apply",
-  onClick,
-  label = "REQUEST ACCESS",
-}: MagicButtonProps) {
+export default function MagicButton({ label = "REQUEST ACCESS" }: MagicButtonProps) {
   const [decrypting, setDecrypting] = useState(false);
   const [revealed, setRevealed] = useState(false);
 
   const handleClick = () => {
     if (decrypting || revealed) return;
     setDecrypting(true);
+    // Pre-warm the module during the animation so popup is instant at 1.4s
+    import('@typeform/embed');
     setTimeout(() => {
       setRevealed(true);
       setDecrypting(false);
-      onClick?.();
-      if (href && href !== "#apply") window.location.href = href;
+      openTypeform();
     }, 1400);
   };
 
@@ -58,7 +54,7 @@ export default function MagicButton({
         {/* Glass backing disc */}
         <div className="glass absolute inset-3 rounded-full" />
 
-        {/* Luxora Shield — SVG primary; swap for /assets/shield.png (issue #3539) when asset lands */}
+        {/* Luxora Shield SVG */}
         <div className="relative z-10 w-14 h-14 flex items-center justify-center drop-shadow-[0_0_12px_rgba(212,175,55,0.6)]">
           <svg
             className="w-full h-full"
@@ -94,8 +90,7 @@ export default function MagicButton({
               <motion.div
                 className="absolute inset-0 rounded-full"
                 style={{
-                  background:
-                    "conic-gradient(from 0deg, #D4AF37 0%, transparent 60%)",
+                  background: "conic-gradient(from 0deg, #D4AF37 0%, transparent 60%)",
                   opacity: 0.6,
                 }}
                 animate={{ rotate: 360 }}
@@ -106,7 +101,7 @@ export default function MagicButton({
         </AnimatePresence>
       </motion.button>
 
-      {/* CTA Label — mask-wipe reveal on mount */}
+      {/* CTA Label */}
       <motion.div
         className="flex flex-col items-center gap-2"
         initial={{ opacity: 0, y: 8 }}

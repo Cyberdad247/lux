@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "@typeform/embed/build/css/popup.css";
 
 export const metadata: Metadata = {
-  title: "Luxora — The Sovereign Standard",
+  title: "Luxora Payments — Close High-Value Buyers Using Crypto",
   description:
     "Uncompromising crypto infrastructure. Dedicated support. The invisible gate for HNWI merchants.",
   keywords: ["crypto OTC", "HNWI", "high-value liquidity", "merchant crypto", "Luxora"],

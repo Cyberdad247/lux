@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { openTypeform } from '@/lib/typeformPopup';
 
 const UrgencyCTA = () => {
   const ref = useRef(null);
@@ -26,22 +27,22 @@ const UrgencyCTA = () => {
           Now onboarding a limited number of businesses ahead of the next market cycle.
         </p>
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-          <motion.a
-            href="#"
+          <motion.button
+            onClick={openTypeform}
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
             className="rounded-full bg-[var(--color-gold)] px-9 py-3.5 text-base font-bold text-[#0A0A0B] transition-opacity hover:opacity-90"
           >
             Start Accepting Today
-          </motion.a>
-          <motion.a
-            href="#"
+          </motion.button>
+          <motion.button
+            onClick={openTypeform}
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
             className="rounded-full border border-[var(--color-gold)] px-9 py-3.5 text-base font-bold text-[var(--color-gold)] transition-colors hover:bg-[var(--color-gold)] hover:text-[#0A0A0B]"
           >
             Request Concierge Access
-          </motion.a>
+          </motion.button>
         </div>
       </div>
     </motion.section>

@@ -74,7 +74,7 @@ export default async function Home() {
 
         {/* Primary CTA */}
         <div className="fade-up" style={{ animationDelay: "1.0s" }}>
-          <MagicButton href="/ref/merchant" label="START ACCEPTING TODAY" />
+          <MagicButton label="START ACCEPTING TODAY" />
         </div>
 
         {/* Trust indicators */}

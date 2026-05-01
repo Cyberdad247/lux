@@ -5,6 +5,7 @@ import TickerBar from "@/components/TickerBar";
 import FeaturesGrid from "@/components/FeaturesGrid";
 import UrgencyCTA from "@/components/UrgencyCTA";
 import ContactFooter from "@/components/ContactFooter";
+import VipSection from "@/components/VipSection";
 import SectionReveal from "@/components/SectionReveal";
 import RefCapture from "@/components/RefCapture";
 import Image from "next/image";
@@ -118,6 +119,7 @@ export default async function Home() {
       <SectionReveal delay={0.05}><FeaturesGrid /></SectionReveal>
       <SectionReveal delay={0.08}><UrgencyCTA /></SectionReveal>
       <SectionReveal delay={0.05}><ContactFooter /></SectionReveal>
+      <SectionReveal delay={0.05}><VipSection /></SectionReveal>
     </main>
   );
 }

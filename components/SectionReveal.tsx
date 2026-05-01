@@ -14,7 +14,7 @@ export default function SectionReveal({ children, delay = 0, className }: Sectio
       initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.75, ease: 'easeOut', delay }}
+      transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1], delay }}
       className={className}
     >
       {children}

@@ -2,6 +2,8 @@
 
 import { useRef, useEffect } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import LiquidKinetic from "./LiquidKinetic";
+import WebGLHero from "./WebGLHero";
 
 export default function Hero({ children }: { children?: React.ReactNode }) {
   const leakRef  = useRef<HTMLDivElement>(null);
@@ -45,15 +47,29 @@ export default function Hero({ children }: { children?: React.ReactNode }) {
   }, [rawX, rawY]);
 
   return (
-    <section className="relative min-h-[85vh] sm:min-h-screen flex flex-col items-center justify-center overflow-hidden">
+    <>
+    <LiquidKinetic />
+    <section className="relative min-h-[92svh] sm:min-h-screen flex flex-col items-center justify-center overflow-hidden py-16 sm:py-20">
+
+      {/* 600ms sovereign wipe — black panel reveals on mount */}
+      <motion.div
+        className="absolute inset-0 bg-[#000000] pointer-events-none origin-left"
+        style={{ zIndex: 30 }}
+        initial={{ scaleX: 1 }}
+        animate={{ scaleX: 0 }}
+        transition={{ duration: 0.6, ease: [0.77, 0, 0.175, 1], delay: 0.05 }}
+      />
 
       {/* Obsidian base */}
       <div className="absolute inset-0 bg-[var(--color-obsidian)]" />
 
+      {/* Gold particle field — Canvas 2D, 80 particles, 60fps */}
+      <WebGLHero />
+
       {/* ── CAR LAYER — Ken Burns drift + mouse parallax ── */}
       <motion.div
         ref={carRef}
-        className="absolute inset-[-8%] bg-cover bg-center"
+        className="absolute inset-[-10%] bg-cover bg-[center_58%] opacity-95"
         style={{
           backgroundImage: "url('/assets/hero-bg.png')",
           x: carX,
@@ -87,6 +103,15 @@ export default function Hero({ children }: { children?: React.ReactNode }) {
         }}
         animate={{ opacity: [0.5, 1, 0.5] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+      />
+
+      <div
+        className="absolute inset-x-0 bottom-0 h-[42%] pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 68% 42% at 50% 100%, rgba(212,175,55,0.20) 0%, rgba(212,175,55,0.08) 42%, transparent 72%)",
+          filter: "blur(1px)",
+        }}
       />
 
       {/* ── LENS FLARE — diagonal sweep across car body ── */}
@@ -159,5 +184,6 @@ export default function Hero({ children }: { children?: React.ReactNode }) {
         {children}
       </div>
     </section>
+    </>
   );
 }

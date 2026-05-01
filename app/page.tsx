@@ -11,23 +11,25 @@ import Image from "next/image";
 import { Suspense } from "react";
 
 const TICKER_FALLBACK = [
-  { symbol: "BTC", price: 0, change24h: 0 },
-  { symbol: "ETH", price: 0, change24h: 0 },
-  { symbol: "SOL", price: 0, change24h: 0 },
+  { symbol: "BTC",  price: 0, change24h: 0 },
+  { symbol: "ETH",  price: 0, change24h: 0 },
+  { symbol: "SOL",  price: 0, change24h: 0 },
+  { symbol: "USDC", price: 1, change24h: 0 },
 ];
 
 async function getTickers() {
   try {
     const res = await fetch(
-      "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana&vs_currencies=usd&include_24hr_change=true",
+      "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana,usd-coin&vs_currencies=usd&include_24hr_change=true",
       { next: { revalidate: 60 } }
     );
     if (!res.ok) return TICKER_FALLBACK;
     const data = await res.json();
     return [
-      { symbol: "BTC", price: data.bitcoin?.usd ?? 0, change24h: data.bitcoin?.usd_24h_change ?? 0 },
-      { symbol: "ETH", price: data.ethereum?.usd ?? 0, change24h: data.ethereum?.usd_24h_change ?? 0 },
-      { symbol: "SOL", price: data.solana?.usd ?? 0, change24h: data.solana?.usd_24h_change ?? 0 },
+      { symbol: "BTC",  price: data.bitcoin?.usd           ?? 0, change24h: data.bitcoin?.usd_24h_change           ?? 0 },
+      { symbol: "ETH",  price: data.ethereum?.usd          ?? 0, change24h: data.ethereum?.usd_24h_change          ?? 0 },
+      { symbol: "SOL",  price: data.solana?.usd             ?? 0, change24h: data.solana?.usd_24h_change             ?? 0 },
+      { symbol: "USDC", price: data["usd-coin"]?.usd       ?? 1, change24h: data["usd-coin"]?.usd_24h_change       ?? 0 },
     ];
   } catch {
     return TICKER_FALLBACK;
@@ -45,7 +47,7 @@ export default async function Home() {
 
       <Hero>
         {/* Luxora Logo */}
-        <div className="mb-10 fade-up" style={{ animationDelay: "0.1s" }}>
+        <div className="mb-6 sm:mb-10 fade-up" style={{ animationDelay: "0.1s" }}>
           <Image
             src="/assets/logo.png"
             alt="Luxora"
@@ -59,10 +61,14 @@ export default async function Home() {
         {/* Headline — mask-reveal */}
         <div className="mb-4 overflow-hidden">
           <h1
-            className="mask-reveal text-3xl sm:text-5xl lg:text-6xl font-extralight tracking-tight text-white leading-tight"
+            className="mask-reveal text-[clamp(1.8rem,8.5vw,4rem)] lg:text-6xl font-extralight tracking-normal text-white leading-tight"
             style={{ animationDelay: "0.3s" }}
           >
-            CLOSE HIGH-VALUE BUYERS
+            <span className="block lg:inline">CLOSE</span>
+            <span className="hidden lg:inline"> </span>
+            <span className="block lg:inline">HIGH-VALUE</span>
+            <span className="hidden lg:inline"> </span>
+            <span className="block lg:inline">BUYERS</span>
             <br />
             <span className="text-[var(--color-gold)]">USING CRYPTO.</span>
           </h1>
@@ -70,7 +76,7 @@ export default async function Home() {
 
         {/* Sub-text */}
         <p
-          className="fade-up text-white/50 text-base sm:text-lg tracking-wider font-light mb-16 max-w-xl"
+          className="fade-up text-white/55 text-sm sm:text-lg tracking-wider font-light mb-10 sm:mb-16 max-w-xl px-1"
           style={{ animationDelay: "0.7s" }}
         >
           We make sure you never lose a serious buyer just because they want to pay in crypto.
@@ -83,14 +89,14 @@ export default async function Home() {
 
         {/* Trust indicators */}
         <div
-          className="fade-up mt-20 flex flex-wrap justify-center gap-4"
+          className="fade-up mt-12 sm:mt-20 flex flex-wrap justify-center gap-3 sm:gap-4"
           style={{ animationDelay: "1.3s" }}
         >
           {["NO CHARGEBACKS", "INSTANT USD", "LOWER FEES", "WHITE-GLOVE SETUP"].map((tag) => (
             <div
               key={tag}
               className="relative overflow-hidden rounded-2xl border border-white/10"
-              style={{ minWidth: "130px" }}
+              style={{ minWidth: "min(42vw, 130px)" }}
             >
               <div
                 className="absolute inset-0 bg-cover bg-center scale-110"

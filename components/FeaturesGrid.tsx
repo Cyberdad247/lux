@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import GlassPanel from '@/components/GlassPanel';
 
 const features = [
   {
@@ -21,17 +21,20 @@ const features = [
   },
 ];
 
-const FeatureCard = ({ headline, description }: { headline: string; description: string }) => (
-  <motion.div
-    className="group flex flex-col gap-4 rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm
-               hover:border-[var(--color-gold)] hover:shadow-[0_0_24px_rgba(212,175,55,0.3)] transition-shadow duration-300"
+const FeatureCard = ({ headline, description, index }: { headline: string; description: string; index: number }) => (
+  <GlassPanel
+    delay={index * 0.1}
     whileHover={{ scale: 1.02 }}
-    transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+    className="group flex flex-col gap-4 hover:border-[var(--color-gold)] hover:shadow-[0_0_24px_rgba(212,175,55,0.3)] transition-shadow duration-300 relative overflow-hidden"
   >
+    {/* VP-04: shimmer top-edge on hover */}
+    <div className="absolute top-0 left-0 right-0 h-px overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <div className="shimmer absolute inset-0 bg-gradient-to-r from-transparent via-[var(--color-gold)] to-transparent" />
+    </div>
     <div className="h-8 w-8 rounded-full bg-[var(--color-gold)] opacity-80 group-hover:opacity-100 transition-opacity" />
     <h3 className="text-xl font-bold text-white">{headline}</h3>
     <p className="text-sm leading-relaxed text-white/60">{description}</p>
-  </motion.div>
+  </GlassPanel>
 );
 
 const FeaturesGrid = () => (
@@ -45,7 +48,7 @@ const FeaturesGrid = () => (
       </p>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         {features.map((f, i) => (
-          <FeatureCard key={i} {...f} />
+          <FeatureCard key={i} {...f} index={i} />
         ))}
       </div>
     </div>

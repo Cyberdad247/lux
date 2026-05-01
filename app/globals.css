@@ -56,6 +56,13 @@ body {
   100% { opacity: 1; transform: translateY(0); }
 }
 
-.gold-pulse { animation: gold-pulse 2.8s ease-in-out infinite; }
+.gold-pulse  { animation: gold-pulse 2.8s ease-in-out infinite; }
 .mask-reveal { animation: mask-wipe 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards; }
 .fade-up     { animation: fade-up 0.9s cubic-bezier(0.23, 1, 0.32, 1) both; }
+
+@keyframes shimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+.shimmer { animation: shimmer 1.4s ease-in-out infinite; }

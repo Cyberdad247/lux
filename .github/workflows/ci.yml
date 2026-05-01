@@ -36,11 +36,50 @@ jobs:
       - name: Type check
         run: npx tsc --noEmit
 
+  # ── Bundle Size Gate ───────────────────────────────────────────────────────
+  bundle-size:
+    name: Bundle Size Gate (160 kB)
+    runs-on: ubuntu-latest
+    needs: quality
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build and capture output
+        run: npm run build 2>&1 | tee /tmp/build.log
+        shell: bash
+
+      - name: Check First Load JS ≤ 160 kB
+        run: node scripts/check-bundle-size.mjs < /tmp/build.log
+
+      - name: Post bundle summary (PRs)
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const log = fs.readFileSync('/tmp/build.log', 'utf8');
+            const rows = log.split('\n').filter(l => /[○ƒ]/.test(l) && /kB/.test(l));
+            const table = rows.map(r => r.replace(/[^\x20-\x7E]/g, '').trim()).join('\n');
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `### 📦 Bundle Sizes\n\`\`\`\n${table}\n\`\`\``
+            });
+
   # ── Deploy Preview (PRs) ──────────────────────────────────────────────────
   preview:
     name: Deploy → Preview
     runs-on: ubuntu-latest
-    needs: quality
+    needs: [quality, bundle-size]
     if: github.event_name == 'pull_request'
     environment:
       name: preview
@@ -86,7 +125,7 @@ jobs:
   production:
     name: Deploy → Production
     runs-on: ubuntu-latest
-    needs: quality
+    needs: [quality, bundle-size]
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     environment:
       name: production

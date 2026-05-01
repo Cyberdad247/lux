@@ -6,7 +6,9 @@ import FeaturesGrid from "@/components/FeaturesGrid";
 import UrgencyCTA from "@/components/UrgencyCTA";
 import ContactFooter from "@/components/ContactFooter";
 import SectionReveal from "@/components/SectionReveal";
+import RefCapture from "@/components/RefCapture";
 import Image from "next/image";
+import { Suspense } from "react";
 
 const TICKER_FALLBACK = [
   { symbol: "BTC", price: 0, change24h: 0 },
@@ -37,6 +39,7 @@ export default async function Home() {
 
   return (
     <main className="bg-[var(--color-obsidian)]">
+      <Suspense fallback={null}><RefCapture /></Suspense>
       <TickerBar tickers={tickers} />
       <TrustBanner />
 

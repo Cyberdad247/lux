@@ -79,12 +79,15 @@ export default async function Home() {
           className="fade-up text-white/55 text-sm sm:text-lg tracking-wider font-light mb-10 sm:mb-16 max-w-xl px-1"
           style={{ animationDelay: "0.7s" }}
         >
-          We make sure you never lose a serious buyer just because they want to pay in crypto.
+          We assist businesses with onboarding and high-value transactions.
+          <span className="block mt-3 text-white/75">
+            We can set up anyone in the world on any part of the globe. It pays to partner with Luxora.
+          </span>
         </p>
 
         {/* Primary CTA */}
         <div className="fade-up" style={{ animationDelay: "1.0s" }}>
-          <MagicButton label="START ACCEPTING TODAY" />
+          <MagicButton label="Apply Now" />
         </div>
 
         {/* Trust indicators */}
@@ -92,7 +95,7 @@ export default async function Home() {
           className="fade-up mt-12 sm:mt-20 flex flex-wrap justify-center gap-3 sm:gap-4"
           style={{ animationDelay: "1.3s" }}
         >
-          {["NO CHARGEBACKS", "INSTANT USD", "LOWER FEES", "WHITE-GLOVE SETUP"].map((tag) => (
+          {["CLOSE DEALS", "INSTANT USD", "GLOBAL ONBOARDING", "WHITE-GLOVE SETUP"].map((tag) => (
             <div
               key={tag}
               className="relative overflow-hidden rounded-2xl border border-white/10"

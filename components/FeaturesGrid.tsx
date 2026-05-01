@@ -4,20 +4,20 @@ import GlassPanel from '@/components/GlassPanel';
 
 const features = [
   {
-    headline: 'No Chargebacks',
-    description: 'Eliminate fraud risk on high-ticket deals. Every crypto transaction is final — no reversals, no disputes.',
+    headline: 'Close High-Value Buyers',
+    description: 'Built specifically for high-ticket transactions that need to move without friction or confusion.',
   },
   {
-    headline: 'Instant USD Settlement',
-    description: 'Auto-convert to USD the moment payment clears. Zero market exposure, zero volatility risk.',
+    headline: 'Built For Crypto Buyers',
+    description: 'Designed to help close crypto buyers without losing the deal to payment hesitation.',
   },
   {
-    headline: 'Lower Fees',
-    description: 'Stop losing margin to Visa and Mastercard. Crypto rails cost a fraction of traditional card processing.',
+    headline: 'Flexible Deal Structuring',
+    description: 'Adapt payment flow per transaction so your team can close the right deal the right way.',
   },
   {
-    headline: 'Crypto Buyer Network',
-    description: 'Get listed on our exclusive Crypto-Friendly Dealer directory — so high-net-worth buyers find you first.',
+    headline: 'White-Glove Onboarding',
+    description: 'Real support for businesses preparing to move into the next crypto wave.',
   },
 ];
 
@@ -44,7 +44,7 @@ const FeaturesGrid = () => (
         Why Luxora
       </h2>
       <p className="mb-12 text-center text-3xl font-bold text-white">
-        Built specifically for high-ticket transactions
+        Trusted by businesses preparing for the next crypto wave
       </p>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         {features.map((f, i) => (

@@ -4,6 +4,7 @@ import { useRef, useEffect } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import LiquidKinetic from "./LiquidKinetic";
 import WebGLHero from "./WebGLHero";
+import { openTypeform } from "@/lib/typeformPopup";
 
 export default function Hero({ children }: { children?: React.ReactNode }) {
   const leakRef  = useRef<HTMLDivElement>(null);
@@ -50,6 +51,27 @@ export default function Hero({ children }: { children?: React.ReactNode }) {
     <>
     <LiquidKinetic />
     <section className="relative min-h-[92svh] sm:min-h-screen flex flex-col items-center justify-center overflow-hidden py-16 sm:py-20">
+      <header className="absolute right-4 top-4 z-20 sm:right-6 sm:top-6">
+        <div className="flex flex-col items-end gap-2 rounded-2xl border border-white/10 bg-black/30 px-4 py-3 backdrop-blur-xl">
+          <div className="flex items-center gap-3">
+            <div className="text-right">
+              <div className="text-[10px] tracking-[0.3em] uppercase text-white/45">Instant global payments</div>
+              <a href="mailto:partners@luxorapayments.com" className="text-[11px] tracking-[0.18em] text-[var(--color-gold)]">
+                partners@luxorapayments.com
+              </a>
+            </div>
+            <button
+              onClick={openTypeform}
+              className="rounded-full border border-[var(--color-gold)] px-4 py-2 text-[10px] font-bold tracking-[0.22em] uppercase text-[var(--color-gold)] transition-colors hover:bg-[var(--color-gold)] hover:text-[var(--color-obsidian)]"
+            >
+              Apply Now
+            </button>
+          </div>
+          <div className="text-right text-[9px] tracking-[0.24em] uppercase text-white/30">
+            Contact : partners@luxorapayments.com
+          </div>
+        </div>
+      </header>
 
       {/* 600ms sovereign wipe — black panel reveals on mount */}
       <motion.div

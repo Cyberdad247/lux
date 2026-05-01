@@ -23,8 +23,11 @@ const UrgencyCTA = () => {
         <p className="mb-4 text-lg text-white/70 md:text-xl">
           We make sure you never lose a serious buyer just because they want to pay in crypto.
         </p>
-        <p className="mb-10 text-base font-semibold text-[var(--color-gold)]">
+        <p className="mb-3 text-base font-semibold text-[var(--color-gold)]">
           Now onboarding a limited number of businesses ahead of the next market cycle.
+        </p>
+        <p className="mb-10 text-sm tracking-[0.25em] uppercase text-white/35">
+          DONT MISS THE NEXT WAVE OF PAYMENTS
         </p>
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <motion.button

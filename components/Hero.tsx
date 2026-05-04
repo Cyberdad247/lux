@@ -49,23 +49,7 @@ export default function Hero({ children }: { children?: React.ReactNode }) {
   return (
     <>
     <LiquidKinetic />
-    <section className="relative min-h-[92svh] sm:min-h-screen flex flex-col items-center justify-center overflow-hidden py-16 sm:py-20">
-      <header className="absolute right-4 top-4 z-20 sm:right-6 sm:top-6">
-        <div className="flex flex-col items-end gap-2 rounded-2xl border border-white/10 bg-black/30 px-4 py-3 backdrop-blur-xl">
-          <div className="flex items-center gap-3">
-            <div className="text-right">
-              <div className="text-[10px] tracking-[0.3em] uppercase text-white/45">Instant global payments</div>
-              <span className="text-[11px] tracking-[0.18em] text-[var(--color-gold)]">
-                Dealerships and high-ticket retailers
-              </span>
-            </div>
-          </div>
-          <div className="text-right text-[9px] tracking-[0.24em] uppercase text-white/30">
-            Currently onboarding select U.S. businesses
-          </div>
-        </div>
-      </header>
-
+    <section className="relative flex min-h-[calc(100svh-6.25rem)] flex-col items-center justify-center overflow-hidden px-0 py-10 sm:min-h-[calc(100svh-5.25rem)] sm:py-16 lg:py-20">
       {/* 600ms sovereign wipe — black panel reveals on mount */}
       <motion.div
         className="absolute inset-0 bg-[#000000] pointer-events-none origin-left"
@@ -195,7 +179,7 @@ export default function Hero({ children }: { children?: React.ReactNode }) {
       />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center text-center px-4 sm:px-6 max-w-4xl mx-auto">
+      <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-4 text-center sm:px-6">
         {children}
       </div>
     </section>

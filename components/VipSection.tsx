@@ -52,7 +52,7 @@ export default function VipSection() {
                 </a>
               </div>
               <div className="text-[10px] tracking-[0.3em] uppercase text-white/35">
-                Instant global payments
+                Dealership and high-ticket retail onboarding
               </div>
               <div className="text-[10px] tracking-[0.24em] uppercase text-white/30">
                 Currently onboarding select U.S. businesses

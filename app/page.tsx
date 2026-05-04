@@ -48,17 +48,18 @@ export default async function Home() {
 
       <Hero>
         {/* Luxora Logo */}
-        <div className="logo-reveal mb-6 w-full max-w-[min(86vw,420px)] sm:mb-10" style={{ animationDelay: "0.12s" }}>
-          <div className="relative overflow-hidden rounded-[14px] border border-[var(--color-gold)]/20 bg-black/55 shadow-[0_0_42px_rgba(212,175,55,0.22)] backdrop-blur-sm">
+        <div className="logo-reveal mb-5 w-full max-w-[min(92vw,520px)] sm:mb-8" style={{ animationDelay: "0.12s" }}>
+          <div className="relative overflow-hidden rounded-[18px] border border-[var(--color-gold)]/25 bg-black/70 shadow-[0_0_54px_rgba(212,175,55,0.28),0_18px_80px_rgba(0,0,0,0.45)] backdrop-blur-sm">
             <Image
-              src="/assets/luxora-canva-logo.png"
+              src="/assets/luxora-canva-logo-hero.jpg"
               alt="Luxora Crypto Payments"
               width={3024}
               height={1664}
-              className="block h-auto w-full object-contain"
+              className="block h-auto w-full object-contain saturate-110"
               priority
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.03] via-transparent to-black/20" />
+            <div className="pointer-events-none absolute inset-x-8 bottom-0 h-px bg-gradient-to-r from-transparent via-[var(--color-gold-glow)]/70 to-transparent" />
             <div
               className="logo-glint pointer-events-none absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-transparent via-[var(--color-gold-glow)]/35 to-transparent blur-sm"
               style={{ animationDelay: "0.34s" }}
@@ -67,9 +68,9 @@ export default async function Home() {
         </div>
 
         {/* Headline — mask-reveal */}
-        <div className="mb-4 overflow-hidden">
+        <div className="mb-3 overflow-hidden sm:mb-4">
           <h1
-            className="mask-reveal text-[clamp(1.8rem,8.5vw,4rem)] lg:text-6xl font-extralight tracking-normal text-white leading-tight"
+            className="mask-reveal text-[clamp(1.65rem,8vw,4rem)] font-extralight leading-tight tracking-normal text-white lg:text-6xl"
             style={{ animationDelay: "0.58s" }}
           >
             <span className="block lg:inline">CLOSE</span>
@@ -84,7 +85,7 @@ export default async function Home() {
 
         {/* Sub-text */}
         <p
-          className="fade-up text-white/55 text-sm sm:text-lg tracking-wider font-light mb-10 sm:mb-16 max-w-xl px-1"
+          className="fade-up mb-8 max-w-xl px-1 text-sm font-light tracking-wider text-white/60 sm:mb-12 sm:text-lg"
           style={{ animationDelay: "0.7s" }}
         >
           Never lose a serious buyer because they want to pay in crypto.
@@ -94,7 +95,7 @@ export default async function Home() {
         </p>
 
         {/* Primary CTA */}
-        <div className="fade-up flex flex-col items-center gap-4" style={{ animationDelay: "1.0s" }}>
+        <div className="fade-up flex flex-col items-center gap-3 sm:gap-4" style={{ animationDelay: "1.0s" }}>
           <MagicButton label="Start Application" />
           <a
             href="mailto:partners@luxorapayments.com"
@@ -109,14 +110,14 @@ export default async function Home() {
 
         {/* Trust indicators */}
         <div
-          className="fade-up mt-12 sm:mt-20 flex flex-wrap justify-center gap-3 sm:gap-4"
+          className="fade-up mt-8 flex max-w-2xl flex-wrap justify-center gap-2.5 sm:mt-14 sm:gap-4"
           style={{ animationDelay: "1.3s" }}
         >
           {["CLOSE DEALS", "INSTANT USD", "GLOBAL ONBOARDING", "WHITE-GLOVE SETUP"].map((tag) => (
             <div
               key={tag}
               className="relative overflow-hidden rounded-2xl border border-white/10"
-              style={{ minWidth: "min(42vw, 130px)" }}
+              style={{ minWidth: "min(42vw, 128px)" }}
             >
               <div
                 className="absolute inset-0 bg-cover bg-center scale-110"
@@ -124,7 +125,7 @@ export default async function Home() {
               />
               <div className="absolute inset-0 bg-[var(--color-obsidian)]/75" />
               <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gold)]/08 to-transparent" />
-              <div className="relative z-10 px-5 py-3 text-[10px] tracking-[0.3em] text-white/60 uppercase font-medium text-center">
+              <div className="relative z-10 px-4 py-2.5 text-center text-[9px] font-medium uppercase tracking-[0.22em] text-white/60 sm:px-5 sm:py-3 sm:text-[10px] sm:tracking-[0.3em]">
                 {tag}
               </div>
             </div>

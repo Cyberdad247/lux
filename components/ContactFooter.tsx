@@ -25,7 +25,7 @@ const ContactFooter = () => (
             </a>
           </div>
           <div className="mt-6 border-t border-white/10 pt-4 text-xs tracking-[0.24em] uppercase text-white/30">
-            Instant global payments
+            Dealership and high-ticket retail onboarding
           </div>
         </div>
       </div>

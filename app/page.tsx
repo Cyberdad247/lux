@@ -48,7 +48,7 @@ export default async function Home() {
 
       <Hero>
         {/* Luxora Logo */}
-        <div className="mb-6 w-full max-w-[min(86vw,420px)] fade-up sm:mb-10" style={{ animationDelay: "0.1s" }}>
+        <div className="logo-reveal mb-6 w-full max-w-[min(86vw,420px)] sm:mb-10" style={{ animationDelay: "0.12s" }}>
           <div className="relative overflow-hidden rounded-[14px] border border-[var(--color-gold)]/20 bg-black/55 shadow-[0_0_42px_rgba(212,175,55,0.22)] backdrop-blur-sm">
             <Image
               src="/assets/luxora-canva-logo.png"
@@ -59,6 +59,10 @@ export default async function Home() {
               priority
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.03] via-transparent to-black/20" />
+            <div
+              className="logo-glint pointer-events-none absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-transparent via-[var(--color-gold-glow)]/35 to-transparent blur-sm"
+              style={{ animationDelay: "0.34s" }}
+            />
           </div>
         </div>
 
@@ -66,7 +70,7 @@ export default async function Home() {
         <div className="mb-4 overflow-hidden">
           <h1
             className="mask-reveal text-[clamp(1.8rem,8.5vw,4rem)] lg:text-6xl font-extralight tracking-normal text-white leading-tight"
-            style={{ animationDelay: "0.3s" }}
+            style={{ animationDelay: "0.58s" }}
           >
             <span className="block lg:inline">CLOSE</span>
             <span className="hidden lg:inline"> </span>

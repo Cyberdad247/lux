@@ -56,9 +56,36 @@ body {
   100% { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes logo-reveal {
+  0% {
+    opacity: 0;
+    filter: blur(18px) brightness(0.7);
+    transform: translateY(18px) scale(0.94);
+  }
+  55% {
+    opacity: 1;
+    filter: blur(4px) brightness(1.16);
+    transform: translateY(0) scale(1.015);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0) brightness(1);
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes logo-glint {
+  0%   { transform: translateX(-135%) skewX(-14deg); opacity: 0; }
+  20%  { opacity: 0.72; }
+  62%  { opacity: 0.28; }
+  100% { transform: translateX(135%) skewX(-14deg); opacity: 0; }
+}
+
 .gold-pulse  { animation: gold-pulse 2.8s ease-in-out infinite; }
 .mask-reveal { animation: mask-wipe 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards; }
 .fade-up     { animation: fade-up 0.9s cubic-bezier(0.23, 1, 0.32, 1) both; }
+.logo-reveal { animation: logo-reveal 1.35s var(--ease-rolex) both; transform-origin: center; }
+.logo-glint  { animation: logo-glint 1.45s var(--ease-rolex) both; }
 
 @keyframes shimmer {
   0%   { transform: translateX(-100%); }

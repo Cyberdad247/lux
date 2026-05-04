@@ -48,15 +48,18 @@ export default async function Home() {
 
       <Hero>
         {/* Luxora Logo */}
-        <div className="mb-6 sm:mb-10 fade-up" style={{ animationDelay: "0.1s" }}>
-          <Image
-            src="/assets/luxora-logo.jpg"
-            alt="Luxora Crypto Payments"
-            width={300}
-            height={300}
-            className="h-28 w-28 rounded-full object-cover object-top drop-shadow-[0_0_32px_rgba(212,175,55,0.5)] sm:h-36 sm:w-36"
-            priority
-          />
+        <div className="mb-6 w-full max-w-[min(86vw,420px)] fade-up sm:mb-10" style={{ animationDelay: "0.1s" }}>
+          <div className="relative overflow-hidden rounded-[14px] border border-[var(--color-gold)]/20 bg-black/55 shadow-[0_0_42px_rgba(212,175,55,0.22)] backdrop-blur-sm">
+            <Image
+              src="/assets/luxora-canva-logo.png"
+              alt="Luxora Crypto Payments"
+              width={3024}
+              height={1664}
+              className="block h-auto w-full object-contain"
+              priority
+            />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.03] via-transparent to-black/20" />
+          </div>
         </div>
 
         {/* Headline — mask-reveal */}

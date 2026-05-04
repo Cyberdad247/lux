@@ -49,7 +49,7 @@ export default function Hero({ children }: { children?: React.ReactNode }) {
   return (
     <>
     <LiquidKinetic />
-    <section className="relative flex min-h-[calc(100svh-6.25rem)] flex-col items-center justify-center overflow-hidden px-0 py-10 sm:min-h-[calc(100svh-5.25rem)] sm:py-16 lg:py-20">
+    <section className="relative flex min-h-[calc(100svh-6.25rem)] flex-col items-center justify-start overflow-hidden px-0 py-8 sm:min-h-[calc(100svh-5.25rem)] sm:justify-center sm:py-16 lg:py-20">
       {/* 600ms sovereign wipe — black panel reveals on mount */}
       <motion.div
         className="absolute inset-0 bg-[#000000] pointer-events-none origin-left"

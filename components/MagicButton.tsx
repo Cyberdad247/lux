@@ -27,12 +27,21 @@ export default function MagicButton({ label = "REQUEST ACCESS" }: MagicButtonPro
   };
 
   return (
-    <div className="flex flex-col items-center gap-6">
+    <div className="flex flex-col items-center gap-3 sm:gap-6">
+      <button
+        onClick={handleClick}
+        aria-label="Start Luxora application"
+        className="rounded-full bg-[var(--color-gold)] px-8 py-3.5 text-xs font-bold uppercase tracking-[0.24em] text-[var(--color-obsidian)] shadow-[0_0_28px_rgba(212,175,55,0.32)] transition-transform hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold)] sm:hidden"
+        style={{ WebkitTapHighlightColor: "transparent" }}
+      >
+        {decrypting ? "Opening..." : label}
+      </button>
+
       {/* Shield + pulse rings */}
       <motion.button
         onClick={handleClick}
         aria-label="Start Luxora application"
-        className="relative flex items-center justify-center w-28 h-28 rounded-full cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold)]"
+        className="relative hidden cursor-pointer items-center justify-center rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold)] sm:flex sm:h-28 sm:w-28"
         whileHover={{ scale: 1.06 }}
         whileTap={{ scale: 0.97 }}
         transition={SPRING}
@@ -52,10 +61,10 @@ export default function MagicButton({ label = "REQUEST ACCESS" }: MagicButtonPro
         />
 
         {/* Glass backing disc */}
-        <div className="glass absolute inset-3 rounded-full" />
+        <div className="glass absolute inset-2 rounded-full sm:inset-3" />
 
         {/* Luxora Shield SVG */}
-        <div className="relative z-10 w-14 h-14 flex items-center justify-center drop-shadow-[0_0_12px_rgba(212,175,55,0.6)]">
+        <div className="relative z-10 flex h-10 w-10 items-center justify-center drop-shadow-[0_0_12px_rgba(212,175,55,0.6)] sm:h-14 sm:w-14">
           <svg
             className="w-full h-full"
             viewBox="0 0 56 56"
@@ -103,7 +112,7 @@ export default function MagicButton({ label = "REQUEST ACCESS" }: MagicButtonPro
 
       {/* CTA Label */}
       <motion.div
-        className="flex flex-col items-center gap-2"
+        className="hidden flex-col items-center gap-2 sm:flex"
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ ...SPRING, delay: 0.6 }}

@@ -48,7 +48,7 @@ export default async function Home() {
 
       <Hero>
         {/* Luxora Logo */}
-        <div className="logo-reveal mb-5 w-full max-w-[min(92vw,520px)] sm:mb-8" style={{ animationDelay: "0.12s" }}>
+        <div className="logo-reveal mb-4 w-full max-w-[min(84vw,340px)] sm:mb-8 sm:max-w-[min(86vw,520px)]" style={{ animationDelay: "0.12s" }}>
           <div className="relative overflow-hidden rounded-[18px] border border-[var(--color-gold)]/25 bg-black/70 shadow-[0_0_54px_rgba(212,175,55,0.28),0_18px_80px_rgba(0,0,0,0.45)] backdrop-blur-sm">
             <Image
               src="/assets/luxora-canva-logo-hero.jpg"
@@ -70,7 +70,7 @@ export default async function Home() {
         {/* Headline — mask-reveal */}
         <div className="mb-3 overflow-hidden sm:mb-4">
           <h1
-            className="mask-reveal text-[clamp(1.65rem,8vw,4rem)] font-extralight leading-tight tracking-normal text-white lg:text-6xl"
+            className="mask-reveal text-[clamp(1.55rem,7.45vw,4rem)] font-extralight leading-tight tracking-normal text-white lg:text-6xl"
             style={{ animationDelay: "0.58s" }}
           >
             <span className="block lg:inline">CLOSE</span>
@@ -79,17 +79,20 @@ export default async function Home() {
             <span className="hidden lg:inline"> </span>
             <span className="block lg:inline">BUYERS</span>
             <br />
-            <span className="text-[var(--color-gold)]">USING CRYPTO.</span>
+            <span className="block text-[clamp(1.35rem,6.4vw,4rem)] text-[var(--color-gold)] sm:inline sm:text-[clamp(1.65rem,8vw,4rem)] lg:text-6xl">
+              USING CRYPTO.
+            </span>
           </h1>
         </div>
 
         {/* Sub-text */}
         <p
-          className="fade-up mb-8 max-w-xl px-1 text-sm font-light tracking-wider text-white/60 sm:mb-12 sm:text-lg"
+          className="fade-up mb-4 max-w-[21rem] px-2 text-sm font-light leading-6 tracking-wide text-white/64 sm:mb-12 sm:max-w-xl sm:text-lg sm:tracking-wider"
           style={{ animationDelay: "0.7s" }}
         >
-          Never lose a serious buyer because they want to pay in crypto.
-          <span className="block mt-3 text-white/75">
+          <span className="block">Never lose a serious buyer</span>
+          <span className="block">because they want to pay in crypto.</span>
+          <span className="mt-2 block text-white/78 sm:mt-3">
             One deal could be $50,000+.
           </span>
         </p>

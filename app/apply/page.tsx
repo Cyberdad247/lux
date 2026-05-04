@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export const metadata = {
   title: 'Apply for Access — Luxora Payments',
-  description: 'Sovereign merchant application for crypto payment acceptance.',
+  description: 'Application for dealerships and high-ticket retailers that want to accept crypto buyers.',
 };
 
 export default function ApplyPage() {

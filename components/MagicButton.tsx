@@ -31,7 +31,7 @@ export default function MagicButton({ label = "REQUEST ACCESS" }: MagicButtonPro
       {/* Shield + pulse rings */}
       <motion.button
         onClick={handleClick}
-        aria-label="Request Luxora Access"
+        aria-label="Start Luxora application"
         className="relative flex items-center justify-center w-28 h-28 rounded-full cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold)]"
         whileHover={{ scale: 1.06 }}
         whileTap={{ scale: 0.97 }}
@@ -116,7 +116,7 @@ export default function MagicButton({ label = "REQUEST ACCESS" }: MagicButtonPro
           {decrypting ? "AUTHENTICATING..." : label}
         </motion.span>
         <span className="text-[10px] tracking-widest text-white/30 uppercase">
-          {revealed ? "ACCESS GRANTED" : "Sovereign Merchants Only"}
+          {revealed ? "APPLICATION OPENED" : "Secure application"}
         </span>
       </motion.div>
     </div>

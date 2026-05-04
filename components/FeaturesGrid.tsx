@@ -41,7 +41,7 @@ const FeaturesGrid = () => (
   <section className="w-full bg-[var(--color-obsidian)] py-20">
     <div className="mx-auto max-w-5xl px-6">
       <h2 className="mb-3 text-center text-sm font-semibold uppercase tracking-widest text-[var(--color-gold)]">
-        Why Luxora
+        Select U.S. Businesses
       </h2>
       <p className="mb-12 text-center text-3xl font-bold text-white">
         Trusted by businesses preparing for the next crypto wave

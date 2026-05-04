@@ -80,15 +80,24 @@ export default async function Home() {
           className="fade-up text-white/55 text-sm sm:text-lg tracking-wider font-light mb-10 sm:mb-16 max-w-xl px-1"
           style={{ animationDelay: "0.7s" }}
         >
-          We assist businesses with onboarding and high-value transactions.
+          Never lose a serious buyer because they want to pay in crypto.
           <span className="block mt-3 text-white/75">
-            We can set up anyone in the world on any part of the globe. It pays to partner with Luxora.
+            One deal could be $50,000+.
           </span>
         </p>
 
         {/* Primary CTA */}
-        <div className="fade-up" style={{ animationDelay: "1.0s" }}>
-          <MagicButton label="Apply Now" />
+        <div className="fade-up flex flex-col items-center gap-4" style={{ animationDelay: "1.0s" }}>
+          <MagicButton label="Start Application" />
+          <a
+            href="mailto:partners@luxorapayments.com"
+            className="rounded-full border border-white/15 px-6 py-3 text-[11px] font-semibold tracking-[0.22em] uppercase text-white/70 transition-colors hover:border-[var(--color-gold)] hover:text-[var(--color-gold)]"
+          >
+            Speak With Our Team
+          </a>
+          <p className="max-w-sm text-center text-[11px] tracking-[0.18em] uppercase text-white/38">
+            Currently onboarding dealerships and high-ticket retailers
+          </p>
         </div>
 
         {/* Trust indicators */}

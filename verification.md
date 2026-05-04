@@ -5,6 +5,22 @@
 
 ---
 
+## MIRROR AUDIT - LUXORA PAYMENTS V1 CONVERSION OVERHAUL
+
+| Check | Method | Pass Condition |
+|-------|--------|----------------|
+| C-01 Button count | Manual viewport audit at 375px, 768px, 1440px | No viewport presents more than two conversion CTAs |
+| C-02 Primary CTA | `rg "Start Application" components app` | Primary CTA label is present |
+| C-03 Secondary CTA | `rg "Speak With Our Team" components app` | Secondary CTA label is present |
+| C-04 Retired CTA copy | `rg "Apply Now|Open VIP Form|Start Accepting Today|Request Concierge Access" components app` | 0 public UI matches |
+| C-05 Money line | Hero first viewport audit | "One deal could be $50,000+." appears in the hero section |
+| C-06 Utility line | Hero first viewport audit | "Never lose a serious buyer because they want to pay in crypto." appears in the hero section |
+| C-07 Public email lock | `rg -o "[A-Za-z0-9._%+-]+@luxorapayments.com" components app` | Only `partners@luxorapayments.com` appears |
+| C-08 Removed exclusivity language | `rg "Sovereign Merchants Only|VIP|V.I.P" components app` | 0 public UI matches |
+| C-09 Social proof heading | `rg "Select U.S. Businesses" components app` | Heading is active |
+
+---
+
 ## GATE 1 — LIQUID POWER VISUAL STANDARD
 
 *Pass/Fail criteria for the Obsidian Flow aesthetic.*
@@ -55,7 +71,7 @@
 | L-02 | Referral route cache | Response headers for `/ref/test` include `no-store` or equivalent | `force-dynamic` confirmed active |
 | L-03 | Metadata B2B alignment | `<title>` tag contains "Close High-Value Buyers" or "Luxora Payments" | Pass after VP-09 |
 | L-04 | JSON-LD validity | Paste `<script type="application/ld+json">` content into Google Rich Results Test | No errors |
-| L-05 | CTA link target | "Start Accepting Today" and "Request Concierge Access" both resolve to non-404 routes | `/apply` route must exist before ship |
+| L-05 | CTA link target | "Start Application" opens the application flow and "Speak With Our Team" uses `mailto:partners@luxorapayments.com` | `/apply` route and Typeform popup must exist before ship |
 | L-06 | Email link | `partners@luxorapayments.com` `href` is `mailto:` not bare text | Pass |
 | L-07 | MagicButton auth flow | Click → 1.4s decryption animation → redirect to `/ref/merchant` | Pass |
 | L-08 | `ref` param preservation | Landing at `/?ref=TEST123` → click CTA → form pre-populates ref field | Pass after IL-06 |

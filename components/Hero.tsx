@@ -4,7 +4,6 @@ import { useRef, useEffect } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import LiquidKinetic from "./LiquidKinetic";
 import WebGLHero from "./WebGLHero";
-import { openTypeform } from "@/lib/typeformPopup";
 
 export default function Hero({ children }: { children?: React.ReactNode }) {
   const leakRef  = useRef<HTMLDivElement>(null);
@@ -56,19 +55,13 @@ export default function Hero({ children }: { children?: React.ReactNode }) {
           <div className="flex items-center gap-3">
             <div className="text-right">
               <div className="text-[10px] tracking-[0.3em] uppercase text-white/45">Instant global payments</div>
-              <a href="mailto:partners@luxorapayments.com" className="text-[11px] tracking-[0.18em] text-[var(--color-gold)]">
-                partners@luxorapayments.com
-              </a>
+              <span className="text-[11px] tracking-[0.18em] text-[var(--color-gold)]">
+                Dealerships and high-ticket retailers
+              </span>
             </div>
-            <button
-              onClick={openTypeform}
-              className="rounded-full border border-[var(--color-gold)] px-4 py-2 text-[10px] font-bold tracking-[0.22em] uppercase text-[var(--color-gold)] transition-colors hover:bg-[var(--color-gold)] hover:text-[var(--color-obsidian)]"
-            >
-              Apply Now
-            </button>
           </div>
           <div className="text-right text-[9px] tracking-[0.24em] uppercase text-white/30">
-            Contact : partners@luxorapayments.com
+            Currently onboarding select U.S. businesses
           </div>
         </div>
       </header>

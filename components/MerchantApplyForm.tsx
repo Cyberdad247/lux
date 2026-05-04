@@ -114,7 +114,9 @@ export default function MerchantApplyForm({ refCode = '' }: MerchantApplyFormPro
       </AnimatePresence>
 
       <h2 className="text-2xl font-bold text-white mb-1 text-center tracking-tight">Apply for Access</h2>
-      <p className="text-white/40 text-sm text-center mb-8">Sovereign Merchants Only</p>
+      <p className="text-white/40 text-sm text-center mb-8">
+        Currently onboarding dealerships and high-ticket retailers
+      </p>
 
       <form onSubmit={handleSubmit} className="space-y-5">
         <div>

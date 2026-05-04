@@ -5,9 +5,9 @@ import { openTypeform } from '@/lib/typeformPopup';
 
 const POINTS = [
   'Close high-value buyers using crypto.',
-  'We make sure you never lose a serious buyer just because they want to pay in crypto.',
-  'Now onboarding a limited number of businesses ahead of the next market cycle.',
-  'Secure payment processing infrastructure for global operators.',
+  'Never lose a serious buyer because they want to pay in crypto.',
+  'Currently onboarding dealerships and high-ticket retailers.',
+  'One deal could be $50,000+.',
 ];
 
 export default function VipSection() {
@@ -16,7 +16,7 @@ export default function VipSection() {
       <div className="relative min-h-[92svh] overflow-hidden">
         <Image
           src="/assets/vip-office.png"
-          alt="Luxora VIP office"
+          alt="Luxora consultation office"
           fill
           className="object-cover object-center opacity-55"
           sizes="100vw"
@@ -27,46 +27,39 @@ export default function VipSection() {
         <div className="relative mx-auto flex min-h-[92svh] max-w-7xl items-center px-6 py-20 sm:px-8">
           <div className="grid w-full gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
             <div className="space-y-6">
-              <p className="text-[10px] tracking-[0.55em] uppercase text-[var(--color-gold)]">V.I.P AREA</p>
+              <p className="text-[10px] tracking-[0.55em] uppercase text-[var(--color-gold)]">Team consultation</p>
               <h2 className="max-w-xl text-4xl font-extralight uppercase leading-[1.02] tracking-[0.08em] text-white sm:text-6xl">
                 Speak with our team
               </h2>
               <p className="max-w-2xl text-sm leading-7 text-white/62 sm:text-base">
-                We assist businesses with onboarding and high-value transactions.
+                Never lose a serious buyer because they want to pay in crypto.
               </p>
               <p className="max-w-2xl text-sm leading-7 text-white/62 sm:text-base">
-                We can set up anyone in the world on any part of the globe. It pays to partner with Luxora.
+                One deal could be $50,000+.
               </p>
               <div className="flex flex-wrap gap-3 pt-2">
                 <button
                   onClick={openTypeform}
                   className="pointer-events-auto rounded-full bg-[var(--color-gold)] px-7 py-3 text-[11px] font-bold tracking-[0.25em] uppercase text-black transition-transform hover:scale-[1.02]"
                 >
-                  Apply Now
+                  Start Application
                 </button>
                 <a
                   href="mailto:partners@luxorapayments.com"
                   className="rounded-full border border-white/15 px-7 py-3 text-[11px] font-semibold tracking-[0.22em] uppercase text-white/70 transition-colors hover:border-[var(--color-gold)] hover:text-[var(--color-gold)]"
                 >
-                  partners@luxorapayments.com
+                  Speak With Our Team
                 </a>
               </div>
               <div className="text-[10px] tracking-[0.3em] uppercase text-white/35">
                 Instant global payments
               </div>
               <div className="text-[10px] tracking-[0.24em] uppercase text-white/30">
-                Contact : partners@luxorapayments.com
+                Currently onboarding select U.S. businesses
               </div>
             </div>
 
             <div className="relative flex min-h-[420px] items-center justify-center">
-              <button
-                onClick={openTypeform}
-                className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[var(--color-gold)] bg-black/70 px-9 py-4 text-sm font-bold tracking-[0.26em] uppercase text-[var(--color-gold)] shadow-[0_0_40px_rgba(212,175,55,0.24)] transition-transform hover:scale-[1.04]"
-              >
-                Open VIP Form
-              </button>
-
               <div className="w-full max-w-lg rounded-[1.5rem] border border-white/10 bg-black/45 p-6 shadow-[0_24px_80px_rgba(0,0,0,0.45)] backdrop-blur-xl">
                 <p className="text-[10px] tracking-[0.45em] uppercase text-white/35">
                   Trusted by businesses preparing for the next crypto wave

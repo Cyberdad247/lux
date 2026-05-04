@@ -21,10 +21,10 @@ const UrgencyCTA = () => {
           CLOSE HIGH-VALUE BUYERS<br className="hidden sm:block" /> USING CRYPTO
         </h2>
         <p className="mb-4 text-lg text-white/70 md:text-xl">
-          We make sure you never lose a serious buyer just because they want to pay in crypto.
+          Never lose a serious buyer because they want to pay in crypto.
         </p>
         <p className="mb-3 text-base font-semibold text-[var(--color-gold)]">
-          Now onboarding a limited number of businesses ahead of the next market cycle.
+          One deal could be $50,000+.
         </p>
         <p className="mb-10 text-sm tracking-[0.25em] uppercase text-white/35">
           DONT MISS THE NEXT WAVE OF PAYMENTS
@@ -36,16 +36,16 @@ const UrgencyCTA = () => {
             whileTap={{ scale: 0.97 }}
             className="rounded-full bg-[var(--color-gold)] px-9 py-3.5 text-base font-bold text-[var(--color-obsidian)] transition-opacity hover:opacity-90"
           >
-            Start Accepting Today
+            Start Application
           </motion.button>
-          <motion.button
-            onClick={openTypeform}
+          <motion.a
+            href="mailto:partners@luxorapayments.com"
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
             className="rounded-full border border-[var(--color-gold)] px-9 py-3.5 text-base font-bold text-[var(--color-gold)] transition-colors hover:bg-[var(--color-gold)] hover:text-[var(--color-obsidian)]"
           >
-            Request Concierge Access
-          </motion.button>
+            Speak With Our Team
+          </motion.a>
         </div>
       </div>
     </motion.section>

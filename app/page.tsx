@@ -50,11 +50,11 @@ export default async function Home() {
         {/* Luxora Logo */}
         <div className="mb-6 sm:mb-10 fade-up" style={{ animationDelay: "0.1s" }}>
           <Image
-            src="/assets/logo.png"
-            alt="Luxora"
-            width={96}
-            height={96}
-            className="object-contain drop-shadow-[0_0_32px_rgba(212,175,55,0.5)]"
+            src="/assets/luxora-logo.jpg"
+            alt="Luxora Crypto Payments"
+            width={300}
+            height={300}
+            className="h-28 w-28 rounded-full object-cover object-top drop-shadow-[0_0_32px_rgba(212,175,55,0.5)] sm:h-36 sm:w-36"
             priority
           />
         </div>

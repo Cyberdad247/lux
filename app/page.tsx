@@ -67,28 +67,35 @@ export default async function Home() {
           </div>
         </div>
 
-        {/* Headline — mask-reveal */}
-        <div className="mb-3 overflow-hidden sm:mb-4">
-          <h1
-            className="mask-reveal text-[clamp(1.55rem,7.45vw,4rem)] font-extralight leading-tight tracking-normal text-white lg:text-6xl"
-            style={{ animationDelay: "0.58s" }}
+        {/* Hero tagline — primary message */}
+        <h1
+          className="fade-up mb-3 px-2 text-center font-extralight leading-[1.02] tracking-tight text-white sm:mb-5"
+          style={{ animationDelay: "0.42s" }}
+        >
+          <span className="block whitespace-nowrap text-[clamp(0.92rem,4vw,2.5rem)]">
+            Accept{" "}
+            <span className="italic text-[var(--color-gold)]">Bitcoin</span>{" "}
+            Payments for your business
+          </span>
+          <span className="mt-1 block italic text-[clamp(0.92rem,4vw,2.5rem)] text-[var(--color-gold)] sm:mt-2">
+            today
+          </span>
+        </h1>
+
+        {/* Supporting value prop — demoted from H1 */}
+        <div className="mb-3 overflow-hidden sm:mb-5">
+          <p
+            className="mask-reveal text-[11px] font-medium uppercase tracking-[0.32em] text-white/55 sm:text-xs sm:tracking-[0.38em]"
+            style={{ animationDelay: "0.7s" }}
           >
-            <span className="block lg:inline">CLOSE</span>
-            <span className="hidden lg:inline"> </span>
-            <span className="block lg:inline">HIGH-VALUE</span>
-            <span className="hidden lg:inline"> </span>
-            <span className="block lg:inline">BUYERS</span>
-            <br />
-            <span className="block text-[clamp(1.35rem,6.4vw,4rem)] text-[var(--color-gold)] sm:inline sm:text-[clamp(1.65rem,8vw,4rem)] lg:text-6xl">
-              USING CRYPTO.
-            </span>
-          </h1>
+            Close high-value buyers <span className="text-[var(--color-gold)]/85">using crypto</span>
+          </p>
         </div>
 
         {/* Sub-text */}
         <p
           className="fade-up mb-4 max-w-[21rem] px-2 text-sm font-light leading-6 tracking-wide text-white/64 sm:mb-12 sm:max-w-xl sm:text-lg sm:tracking-wider"
-          style={{ animationDelay: "0.7s" }}
+          style={{ animationDelay: "0.86s" }}
         >
           <span className="block">Never lose a serious buyer</span>
           <span className="block">because they want to pay in crypto.</span>
@@ -102,7 +109,7 @@ export default async function Home() {
           <MagicButton label="Start Application" />
           <a
             href="mailto:partners@luxorapayments.com"
-            className="rounded-full border border-white/15 px-6 py-3 text-[11px] font-semibold tracking-[0.22em] uppercase text-white/70 transition-colors hover:border-[var(--color-gold)] hover:text-[var(--color-gold)]"
+            className="rounded-full border border-white/30 px-10 py-5 text-sm font-bold uppercase tracking-[0.26em] text-white/85 transition-colors hover:border-[var(--color-gold)] hover:text-[var(--color-gold)] sm:px-14 sm:py-6 sm:text-base sm:tracking-[0.3em]"
           >
             Speak With Our Team
           </a>

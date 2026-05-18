@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { openTypeform } from "@/lib/typeformPopup";
+import { openBitflowApplication } from "@/lib/typeformPopup";
 
 const SPRING = { type: "spring" as const, stiffness: 100, damping: 30 };
+const BITFLOW_URL = "https://merchant.getbitflow.com/sign-up?code=BF-185C14";
 
 interface MagicButtonProps {
   label?: string;
@@ -17,11 +18,10 @@ export default function MagicButton({ label = "REQUEST ACCESS" }: MagicButtonPro
   const handleClick = () => {
     if (decrypting || revealed) return;
     setDecrypting(true);
-    import('@typeform/embed');
     setTimeout(() => {
       setRevealed(true);
       setDecrypting(false);
-      openTypeform();
+      openBitflowApplication();
     }, 1400);
   };
 
@@ -30,7 +30,8 @@ export default function MagicButton({ label = "REQUEST ACCESS" }: MagicButtonPro
   return (
     <motion.button
       onClick={handleClick}
-      aria-label="Start Luxora application"
+      aria-label="Start Luxora merchant application on Bitflow"
+      data-href={BITFLOW_URL}
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       transition={SPRING}
